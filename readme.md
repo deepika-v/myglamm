@@ -28,6 +28,7 @@ The Laravel framework is open-sourced software licensed under the [MIT license](
 
 
 Virtual host changes:- 
+
 <VirtualHost *:8085> 
 	DocumentRoot "C:\xampp\htdocs\cem_mobi_temp\api\public"
     ServerName workorder-api.dev	
@@ -53,7 +54,6 @@ Virtual host changes:-
     #ravHeader always set Access-Control-Allow-Origin "*"
     Header always set Access-Control-Allow-Methods "POST, GET, OPTIONS, DELETE, PUT"
     Header always set Access-Control-Max-Age "1000"
-    Header always set Access-Control-Allow-Headers "x-requested-with, Content-Type, origin, authorization, accept, client-security-token"
-    
+    Header always set Access-Control-Allow-Headers "x-requested-with, Content-Type, origin, authorization, accept, client-security-token"    
    </Directory>
 </VirtualHost>
