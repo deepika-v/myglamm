@@ -25,3 +25,35 @@ If you discover a security vulnerability within Laravel, please send an e-mail t
 ## License
 
 The Laravel framework is open-sourced software licensed under the [MIT license](http://opensource.org/licenses/MIT).
+
+
+Virtual host changes:- 
+<VirtualHost *:8085> 
+	DocumentRoot "C:\xampp\htdocs\cem_mobi_temp\api\public"
+    ServerName workorder-api.dev	
+ <Directory "C:\xampp\htdocs\cem_mobi_temp\api\public">
+                Options -MultiViews
+
+                RewriteEngine On
+
+                # Redirect Trailing Slashes If Not A Folder...
+                RewriteCond %{REQUEST_FILENAME} !-d
+                RewriteRule ^(.*)/$ /$1 [L,R=301]
+
+                # Handling Authorization Header ...
+                RewriteCond %{HTTP:Authorization} ^(.*)
+                RewriteRule .* - [e=HTTP_AUTHORIZATION:%1]
+
+                # Handle Front Controller...
+                RewriteCond %{REQUEST_FILENAME} !-d
+                RewriteCond %{REQUEST_FILENAME} !-f
+                RewriteRule ^ index.php [L]
+    
+    # Always set these headers.
+    #ravHeader always set Access-Control-Allow-Origin "*"
+    Header always set Access-Control-Allow-Methods "POST, GET, OPTIONS, DELETE, PUT"
+    Header always set Access-Control-Max-Age "1000"
+    Header always set Access-Control-Allow-Headers "x-requested-with, Content-Type, origin, authorization, accept, client-security-token"
+    
+   </Directory>
+</VirtualHost>
